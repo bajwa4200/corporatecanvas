@@ -1,0 +1,96 @@
+{% load static %}
+<!-- ------------------------------footer sub end---------------------------------- -->
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Abel|Lato|Open+Sans&display=swap" rel="stylesheet">
+<style>
+  
+    /* footer */
+#footer-main{
+	background: #000;
+	color: white;
+	font-size: 0.8rem;
+	padding: 2.5rem 0;
+    font-family: 'Lato', sans-serif;
+}
+
+#footer-main a{
+	font-size: 14px;
+	display: block;
+	margin: 0.3rem;
+	color: grey;
+}
+
+#footer-main a:hover{
+	font-weight: bold;
+	color: white;
+}
+
+#footer-main h6 a{
+    color: white;
+
+    
+}
+
+
+
+#footer-main hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid white;
+}
+
+#footer-main img{
+	margin-right: 0.6rem;
+}
+</style>
+
+<footer id="footer-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5">
+          <a href="">Contact Us: </a>
+          <a href=""><img class="h-size2" src="{% static 'images/hui.png' %}" alt="whatsapp">+92 321 5435737 </a>
+          <a href="mailto:arjumandkhanrana@hotmail.com">Email: arjumandkhanrana@hotmail.com </a>
+        </div>
+        <div class="col-sm-5">
+          <a  href="" >&copy; <span id="year"></span> Corporate Canvas. All Rights Reserved.</a>
+          <a  href="https://3devs.000.pe/?i=1" >Created by 3DEVS</a>
+          <a href="mailto:3devs.official@gmail.com">Email: 3devs.official@gmail.com </a>
+        </div>
+        <div class="col-sm-3">
+          <a href="/shop/">All Products</a>
+          <a href="/about/"> About Us</a>
+         
+        </div>
+        
+        {% comment %} <div class="col-sm-3">
+          <a href="#">
+            <img class="h-size2" src="{% static 'images/icons/paypal.png' %}" alt="IMG-PAYPAL">
+          </a>
+    
+          <a href="#">
+            <img class="h-size2" src="{% static 'images/icons/visa.png' %}" alt="IMG-VISA">
+          </a>
+    
+          <a href="#">
+            <img class="h-size2" src="{% static 'images/icons/mastercard.png' %}" alt="IMG-MASTERCARD">
+          </a>
+    
+          <a href="#">
+            <img class="h-size2" src="{% static 'images/icons/express.png' %}" alt="IMG-EXPRESS">
+          </a>
+    
+          <a href="#">
+            <img class="h-size2" src="{% static 'images/icons/discover.png' %}" alt="IMG-DISCOVER">
+          </a>
+        </div>
+         {% endcomment %}
+      </div>
+  
+      <hr>
+     
+    </div>
+  </footer>
+<!-- ------------------------------footer end---------------------------------- -->
+

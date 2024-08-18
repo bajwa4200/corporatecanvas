@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    .about-section {
+       padding:8%;
+    }
+    .about-section .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: cursive;
+        margin-bottom: 20px;
+    }
+    .about-section .content {
+        font-size: 1.1rem;
+        font-family: cursive;
+        line-height: 1.7;
+    }
+    .about-section .image {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="container about-section">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4">
+            <img src="https://media.istockphoto.com/id/541976644/photo/detail-of-offset-printing-machine.webp?b=1&s=170667a&w=0&k=20&c=hpf6qIJvWd52qNrYMQRTJ_xrRepLE-XhuUNWn2OsIAA=" alt="About Us" class="image">
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <h2 class="title">About Us</h2>
+            <p class="content">
+                Welcome to Corporate Canvas, your number one source for all things printing. We're dedicated to providing you with the very best in printing services, with an emphasis on quality, customer service, and uniqueness.
+
+                At Corporate Canvas, we offer over 150 products in the following categories:
+                
+                Business Prints,
+                Gift Prints,
+                Large Prints,
+                Packaging,
+                Promo Prints,
+                T-shirt Prints.         </p>
+            <br>
+            <p class="content">
+                We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

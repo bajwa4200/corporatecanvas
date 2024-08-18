@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "demo/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "512mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/demo/wsgi.py"
+    }
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "demo.settings"
+  }
+}
+

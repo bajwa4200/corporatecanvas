@@ -1,0 +1,137 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<style>
+  .alert-info{
+    margin-top: 6%;
+    color: #888888;
+    background: linear-gradient(252deg, black, transparent);
+  }
+  .uio{
+    margin-top: 9%;
+    margin-bottom: 5%;
+    padding: 2%;
+    box-shadow: 0px 0px 5px #000;
+  }
+  .yahu{
+    font-family: fangsong;
+    text-shadow: 5px 5px 5px grey;
+    padding-bottom: 2%;
+  }
+  .oi{
+    color: #000;
+    font-family: cursive;
+    font-size: 18px;
+  }
+  .io{
+    font-family: math;
+  }
+  .btn-primary{
+    background: radial-gradient(#fffbfb7a, #59ff747d);
+    color: #000;
+    border: 0.5px solid #59ff747d;
+  }
+  .btn-warning{
+    background: linear-gradient(199deg, black, transparent);
+    border: none;
+    color: #fff;
+  }
+  @media (max-width: 767.98px) {
+    .table thead {
+      display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+      display: block;
+      width: 100%;
+    }
+    .table td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+    }
+    .table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+    .oi {
+      font-size: 14px;
+    }
+  }
+</style>
+
+<div class="uio container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="yahu">Order Summary</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="io" scope="col">#</th>
+            <th class="io" scope="col">Product Image</th>
+            <th class="io" scope="col">Product Name</th>
+            <th class="io" scope="col">Product Price</th>
+            <th class="io" scope="col">Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order_item in object.items.all %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>
+			<img src="{{ order_item.item.item_image1.url }}" style="width: 130px;"> 
+            </td>
+            <td class="oi">{{ order_item.item.title }}</td>
+            <td class="oi">{{ order_item.item.price }}</td>
+            <td>
+            	<a href="{% url 'core:remove-single-item-from-cart' order_item.item.slug %}"><i class="fas fa-minus mr-3"></i></a>
+            	{{ order_item.quantity }}
+            	<a href="{% url 'core:add-to-cart' order_item.item.slug %}"><i class="fas fa-plus ml-3"></i></a>
+            </td>
+            <td>
+              {% comment %} {% if order_item.item.discount_price %}
+                  ${{ order_item.get_total_discount_item_price}}
+                  <span class="badge badge-primary">  Saving ${{ order_item.get_amount_saved }}</span>
+              {% else %}
+                  ${{ order_item.get_total_item_price}}
+              {% endif %} {% endcomment %}
+              <a style="color: red" href="{% url 'core:remove-from-cart' order_item.item.slug %}">
+              	<i class="fas fa-trash float-right"></i>
+              </a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+			<td colspan="5">Your cart is empty</td>
+          </tr>
+        </tbody>
+        {% endfor %}
+        {% comment %} {% if object.coupon %}
+        <tr>
+          <td colspan="5"><b>Coupon : </b></td>
+          <td>- ${{ object.coupon.amount }}</td>
+        </tr>
+        {% endif%}  {% endcomment %}
+
+        {% comment %} <tr>
+        	<td colspan="5"><b>Order Total : </b></td>
+        	<td><b>${{ object.get_total }}</b></td>
+        </tr> {% endcomment %}
+        <tr>
+        	<td colspan="5">
+        		<a href="/checkout" class="btn btn-warning float-right ml-2">Checkout</a>
+        		<a href="/" class="btn btn-primary float-right">Continue Shopping</a>
+
+        	</td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
